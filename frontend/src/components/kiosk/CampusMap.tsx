@@ -45,7 +45,7 @@ const createKioskIcon = (isSelected: boolean, status: string) => {
 function MapUpdater({ center }: { center: [number, number] }) {
   const map = useMap();
   useEffect(() => {
-    map.flyTo(center, 16);
+    map.flyTo(center, 17);
   }, [center, map]);
   return null;
 }
@@ -67,7 +67,7 @@ export const CampusMap: React.FC<CampusMapProps> = ({
     <div className="w-full h-[400px] sm:h-[480px] rounded-3xl overflow-hidden border border-brand-cardBorder shadow-soft relative z-10">
       <MapContainer
         center={defaultCenter}
-        zoom={16}
+        zoom={17}
         scrollWheelZoom={false}
         className="w-full h-full"
       >
@@ -91,7 +91,7 @@ export const CampusMap: React.FC<CampusMapProps> = ({
               }}
             >
               <Popup className="custom-popup">
-                <div className="p-1 max-w-[200px] text-xs font-sans">
+                <div className="p-1 max-w-[220px] text-xs font-sans">
                   <div className="flex items-center justify-between gap-1 mb-1">
                     <strong className="text-brand-dark text-xs">{kiosk.name}</strong>
                     <span className="text-[9px] bg-purple-100 text-brand-purple px-1.5 py-0.5 rounded font-mono font-bold">
@@ -99,7 +99,12 @@ export const CampusMap: React.FC<CampusMapProps> = ({
                     </span>
                   </div>
 
-                  <div className="text-[10px] text-gray-500 mb-2">{kiosk.location}</div>
+                  <div className="inline-flex items-center gap-1 text-[9px] font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded border border-blue-200 mb-1.5">
+                    <span>🏢</span>
+                    <span>Inside Building • Indoor Kiosk</span>
+                  </div>
+
+                  <div className="text-[10px] text-gray-500 mb-2 leading-tight">{kiosk.location}</div>
 
                   <div className="space-y-1 text-[10px] text-gray-600 mb-2">
                     <div className="flex justify-between">

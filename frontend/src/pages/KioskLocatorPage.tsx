@@ -117,9 +117,14 @@ export const KioskLocatorPage: React.FC = () => {
             <div className="bg-white rounded-3xl p-6 border border-brand-cardBorder shadow-soft space-y-4">
               <div className="flex items-center justify-between">
                 <div>
-                  <span className="text-[10px] font-mono font-bold bg-purple-100 text-brand-purple px-2 py-0.5 rounded">
-                    {selectedKiosk.campusCode}
-                  </span>
+                  <div className="flex items-center gap-2">
+                    <span className="text-[10px] font-mono font-bold bg-purple-100 text-brand-purple px-2 py-0.5 rounded">
+                      {selectedKiosk.campusCode}
+                    </span>
+                    <span className="text-[10px] font-bold bg-blue-50 text-blue-700 border border-blue-200 px-2 py-0.5 rounded-full inline-flex items-center gap-1">
+                      🏢 Inside Building
+                    </span>
+                  </div>
                   <h3 className="font-bold text-lg text-brand-dark mt-1">{selectedKiosk.name}</h3>
                   <div className="text-xs text-brand-mutedText flex items-center gap-1.5 mt-0.5">
                     <MapPin className="w-3.5 h-3.5 text-brand-purple flex-shrink-0" />
@@ -230,9 +235,12 @@ export const KioskLocatorPage: React.FC = () => {
                 >
                   <div className="flex items-start justify-between gap-2">
                     <div>
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-2 flex-wrap">
                         <span className="text-[10px] font-mono font-bold bg-purple-100 text-brand-purple px-2 py-0.5 rounded">
                           {k.campusCode}
+                        </span>
+                        <span className="text-[9px] font-bold bg-blue-50 text-blue-700 border border-blue-200 px-1.5 py-0.5 rounded-full inline-flex items-center gap-0.5">
+                          🏢 Inside Building
                         </span>
                         <h4 className="font-bold text-sm text-brand-dark">{k.name}</h4>
                       </div>

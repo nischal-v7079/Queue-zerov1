@@ -78,97 +78,97 @@ async function main() {
   console.log('   - Admin: admin@vitap.ac.in / admin123');
   console.log('   - Operator: operator@vitap.ac.in / operator123');
 
-  // 2. Create Campus Kiosks (VIT-AP University Campus Coordinates)
+  // 2. Create Campus Kiosks (VIT-AP University: AB1, AB2, CB, MH3, LH3, ROCK PLAZA - All Inside Building)
   const kiosksData = [
     {
-      name: 'Central Block Kiosk (CB)',
-      campusCode: 'VITAP-CB',
-      location: 'Central Block (CB), Ground Floor Main Foyer & Food Court',
-      description: '10-storey campus landmark hub with heavy-duty laser units & cafeteria pickup',
-      latitude: 16.4952,
-      longitude: 80.4995,
-      status: 'ONLINE',
-      paperLevelPercent: 94,
-      tonerLevelPercent: 88,
-      queueDepth: 2,
-      ppmSpeed: 45,
-      activeQueueCapacity: 50,
-      operatorName: 'Ramesh Kumar (Desk A)'
-    },
-    {
-      name: 'Sarvepalli Radhakrishnan Block (AB-1)',
+      name: 'Academic Block 1 (AB-1)',
       campusCode: 'VITAP-AB1',
-      location: 'Academic Block 1 (AB-1), Near VSB & SCOPE Dept Level 1',
-      description: 'High-speed duplex print hub for CSE, Mechanical, and Business lab records',
-      latitude: 16.4965,
-      longitude: 80.4988,
+      location: 'Inside AB-1 Building • Ground Floor West Wing Indoor Lobby (Near SCOPE & VSB)',
+      description: 'Indoor high-speed duplex print hub inside Sarvepalli Radhakrishnan Block (AB-1)',
+      latitude: 16.49655,
+      longitude: 80.49875,
       status: 'ONLINE',
-      paperLevelPercent: 88,
-      tonerLevelPercent: 82,
+      paperLevelPercent: 92,
+      tonerLevelPercent: 86,
       queueDepth: 1,
-      ppmSpeed: 40,
-      activeQueueCapacity: 35,
-      operatorName: 'Priya V. (AB-1 Desk)'
+      ppmSpeed: 45,
+      activeQueueCapacity: 40,
+      operatorName: 'Priya V. (AB-1 Indoor Desk)'
     },
     {
-      name: 'APJ Abdul Kalam Block (AB-2)',
+      name: 'Academic Block 2 (AB-2)',
       campusCode: 'VITAP-AB2',
-      location: 'Academic Block 2 (AB-2), School of Sciences & Languages Entrance',
-      description: 'Thesis, dissertation and high-volume project reports binder station',
-      latitude: 16.4974,
-      longitude: 80.5002,
+      location: 'Inside AB-2 Building • Ground Floor East Wing Indoor Atrium (Near Science Labs)',
+      description: 'Indoor thesis, dissertation and high-volume binder station inside APJ Abdul Kalam Block (AB-2)',
+      latitude: 16.49740,
+      longitude: 80.50020,
       status: 'ONLINE',
       paperLevelPercent: 96,
       tonerLevelPercent: 92,
       queueDepth: 0,
       ppmSpeed: 50,
       activeQueueCapacity: 40,
-      operatorName: 'Suresh M. (AB-2 Lab)'
+      operatorName: 'Suresh M. (AB-2 Indoor Desk)'
     },
     {
-      name: 'VIT-AP Central Library Hub',
-      campusCode: 'VITAP-LIB',
-      location: 'Central Library, 2nd Floor Digital Resource & E-Learning Section',
-      description: 'Quiet study zone with Koha automated smart envelope dispenser',
-      latitude: 16.4942,
-      longitude: 80.5008,
+      name: 'Central Block (CB)',
+      campusCode: 'VITAP-CB',
+      location: 'Inside Central Block (CB) • Ground Floor Indoor Main Foyer & Food Court Hall',
+      description: 'Primary indoor high-speed duplex print hub inside 10-storey Mahatma Gandhi Central Block',
+      latitude: 16.49520,
+      longitude: 80.49945,
       status: 'ONLINE',
-      paperLevelPercent: 82,
-      tonerLevelPercent: 79,
-      queueDepth: 1,
+      paperLevelPercent: 94,
+      tonerLevelPercent: 88,
+      queueDepth: 2,
+      ppmSpeed: 50,
+      activeQueueCapacity: 50,
+      operatorName: 'Ramesh Kumar (CB Indoor Desk A)'
+    },
+    {
+      name: 'Men\'s Hostel 3 (MH-3)',
+      campusCode: 'VITAP-MH3',
+      location: 'Inside MH-3 Building • Ground Floor Indoor Reception & Common Study Room',
+      description: '24/7 indoor express pickup lockers inside Men\'s Hostel Block 3 for safe night-time prints',
+      latitude: 16.49250,
+      longitude: 80.49770,
+      status: 'ONLINE',
+      paperLevelPercent: 84,
+      tonerLevelPercent: 78,
+      queueDepth: 3,
       ppmSpeed: 35,
       activeQueueCapacity: 30,
-      operatorName: 'Library Circulation Desk'
+      operatorName: 'MH-3 Indoor Security Desk'
     },
     {
-      name: 'Men\'s Hostel Complex (MH - Rock Plaza)',
-      campusCode: 'VITAP-MH',
-      location: 'Men\'s Hostel (MH-1/MH-2), Beside Rock Plaza & Food Street',
-      description: '24/7 express pickup lockers with instant QR code release for late-night prints',
-      latitude: 16.4930,
-      longitude: 80.4985,
-      status: 'BUSY',
-      paperLevelPercent: 74,
-      tonerLevelPercent: 68,
-      queueDepth: 4,
-      ppmSpeed: 35,
-      activeQueueCapacity: 25,
-      operatorName: 'Rock Plaza Security Desk'
-    },
-    {
-      name: 'Ladies Hostel Complex (LH Block)',
-      campusCode: 'VITAP-LH',
-      location: 'Ladies Hostel (LH-1/LH-2), Common Recreation Hall Foyer',
-      description: '24/7 autonomous quick-scan release terminal inside secure residential boundary',
-      latitude: 16.4925,
-      longitude: 80.5015,
+      name: 'Ladies\' Hostel 3 (LH-3)',
+      campusCode: 'VITAP-LH3',
+      location: 'Inside LH-3 Building • Ground Floor Indoor Recreation Foyer & Study Hall',
+      description: '24/7 autonomous indoor quick-scan release terminal inside Ladies\' Hostel Block 3',
+      latitude: 16.49180,
+      longitude: 80.50170,
       status: 'ONLINE',
       paperLevelPercent: 90,
       tonerLevelPercent: 85,
-      queueDepth: 2,
+      queueDepth: 1,
       ppmSpeed: 35,
-      activeQueueCapacity: 25,
-      operatorName: 'LH Warden Desk'
+      activeQueueCapacity: 30,
+      operatorName: 'LH-3 Indoor Warden Desk'
+    },
+    {
+      name: 'Rock Plaza',
+      campusCode: 'VITAP-ROCK',
+      location: 'Inside Rock Plaza Pavilion • Indoor Dining & Student Services Building Center',
+      description: 'Inside indoor student amenities complex at Rock Plaza with solar-assisted fast queue release',
+      latitude: 16.49380,
+      longitude: 80.49890,
+      status: 'BUSY',
+      paperLevelPercent: 76,
+      tonerLevelPercent: 70,
+      queueDepth: 4,
+      ppmSpeed: 40,
+      activeQueueCapacity: 35,
+      operatorName: 'Rock Plaza Indoor Desk'
     }
   ];
 
@@ -181,7 +181,9 @@ async function main() {
 
   // 3. Create Pickup Slots for Kiosks
   const now = new Date();
-  const centralKiosk = kiosks[0];
+  const cbKiosk = kiosks.find(k => k.campusCode === 'VITAP-CB') || kiosks[0];
+  const ab1Kiosk = kiosks.find(k => k.campusCode === 'VITAP-AB1') || kiosks[1];
+  const centralKiosk = cbKiosk;
 
   for (const kiosk of kiosks) {
     for (let offset = 0; offset < 3; offset++) {
@@ -325,7 +327,7 @@ async function main() {
       userId: student.id,
       documentId: doc2.id,
       printSettingsId: doc2.printSettings!.id,
-      kioskId: kiosks[1].id, // Library kiosk
+      kioskId: ab1Kiosk.id, // AB-1 kiosk
       printMode: 'INSTANT',
       status: 'PRINTING',
       priorityScore: 5.40,
@@ -395,7 +397,7 @@ async function main() {
       {
         userId: student.id,
         title: 'Your Print Is Ready! 🎉',
-        message: 'Order #8XUI-Z123 is printed and sealed at Central Block Kiosk (CB). Show your ID for quick collection.',
+        message: 'Order #8XUI-Z123 is printed and sealed at Central Block (CB). Show your ID for quick collection.',
         type: 'READY_FOR_PICKUP',
         isRead: false,
         link: '/orders/8XUI-Z123'
@@ -403,7 +405,7 @@ async function main() {
       {
         userId: student.id,
         title: 'Hardware Printing Started 🖨️',
-        message: 'Order #4TRK-B981 is being printed at Sarvepalli Radhakrishnan Block (AB-1) (High Priority Mode).',
+        message: 'Order #4TRK-B981 is being printed at Academic Block 1 (AB-1) (High Priority Mode).',
         type: 'ORDER_CONFIRMED',
         isRead: false,
         link: '/orders/4TRK-B981'

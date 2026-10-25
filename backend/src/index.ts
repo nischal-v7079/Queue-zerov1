@@ -30,8 +30,9 @@ const PORT = Number(process.env.PORT) || 5000;
 const HOST = '0.0.0.0';
 
 // Middleware
+const frontendUrl = process.env.FRONTEND_URL;
 app.use(cors({
-  origin: '*',
+  origin: frontendUrl ? [frontendUrl, 'http://localhost:5173', 'http://localhost:5000'] : '*',
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
@@ -95,3 +96,6 @@ process.on('SIGTERM', () => {
     console.log('Server process terminated gracefully');
   });
 });
+
+export default app;
+export { app };

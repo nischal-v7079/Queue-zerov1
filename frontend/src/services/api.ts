@@ -1,4 +1,19 @@
-const API_BASE_URL = '/api';
+// In browser runtime, use relative '/api' which Vercel rewrites to the backend service.
+// If BACKEND_URL is provided via Vercel service binding or runtime environment, use it.
+const getBaseApiUrl = (): string => {
+  const envProcess = (globalThis as any).process;
+  if (envProcess?.env?.BACKEND_URL) {
+    const base = envProcess.env.BACKEND_URL.replace(/\/+$/, '');
+    return `${base}/api`;
+  }
+  if (typeof import.meta !== 'undefined' && (import.meta as any).env?.VITE_BACKEND_URL) {
+    const base = (import.meta as any).env.VITE_BACKEND_URL.replace(/\/+$/, '');
+    return `${base}/api`;
+  }
+  return '/api';
+};
+
+const API_BASE_URL = getBaseApiUrl();
 
 function getAuthHeader(): Record<string, string> {
   const token = localStorage.getItem('qzero_token');

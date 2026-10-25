@@ -55,8 +55,8 @@ export const CampusMap: React.FC<CampusMapProps> = ({
   selectedKioskId,
   onSelectKiosk,
 }) => {
-  // Default center around Central Campus Kiosk (demonstration campus coordinates)
-  const defaultCenter: [number, number] = [16.5062, 80.6480];
+  // Center on VIT-AP University campus (Inavolu, Amaravati)
+  const defaultCenter: [number, number] = [16.4947, 80.4992];
 
   const activeKiosk = kiosks.find((k) => k.id === selectedKioskId) || kiosks[0];
   const centerPos: [number, number] = activeKiosk

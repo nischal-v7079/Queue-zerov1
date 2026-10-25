@@ -188,7 +188,7 @@ export const CollectionVerifier: React.FC = () => {
               <span className="text-gray-400 font-medium">Registered Student:</span>
               <div className="font-bold text-brand-dark text-sm mt-0.5">{order.user?.name}</div>
               <div className="text-brand-purple font-mono font-bold mt-0.5">
-                Roll No: {order.user?.rollNumber || '2614213032'}
+                Roll No: {order.user?.rollNumber || '26BES7079'}
               </div>
               <div className="text-gray-500 text-[11px]">{order.user?.department}</div>
             </div>

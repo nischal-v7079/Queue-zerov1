@@ -27,7 +27,7 @@ export const ProfilePage: React.FC = () => {
               </div>
               <div>
                 <div className="text-xs font-bold tracking-wider text-purple-200 uppercase">
-                  Apex University Campus Network
+                  VIT-AP University • Amaravati Campus
                 </div>
                 <div className="text-sm font-semibold text-white">Smart Identity & Print Pass</div>
               </div>
@@ -42,20 +42,20 @@ export const ProfilePage: React.FC = () => {
             <div>
               <div className="text-xl font-black text-white tracking-wide">{user?.name}</div>
               <div className="text-xs font-mono text-purple-300 font-bold mt-0.5">
-                Roll No: {user?.rollNumber || '2614213032'}
+                Roll No: {user?.rollNumber || '26BES7079'}
               </div>
               <div className="text-[11px] text-gray-300 mt-0.5">
-                {user?.department || 'Computer Science & Engineering'} • {user?.year || '3rd Year'}
+                {user?.department || 'School of Computer Science & Engineering (SCOPE)'} • {user?.year || '3rd Year B.Tech'}
               </div>
             </div>
 
             <div className="bg-white p-1.5 rounded-xl">
-              <QRCodeSVG value={`QZERO-STUDENT-${user?.rollNumber || '2614213032'}`} size={64} fgColor="#17152F" />
+              <QRCodeSVG value={`QZERO-STUDENT-${user?.rollNumber || '26BES7079'}`} size={64} fgColor="#17152F" />
             </div>
           </div>
 
           <div className="relative z-10 flex items-center justify-between pt-3 border-t border-white/15 text-[11px] text-gray-300 font-mono">
-            <span>Card ID: UCID-{user?.rollNumber || '2614213032'}</span>
+            <span>Card ID: UCID-{user?.rollNumber || '26BES7079'}</span>
             <span>Zero-Wait Telemetry Certified</span>
           </div>
         </div>

@@ -28,18 +28,18 @@ async function main() {
   // 1. Create Demo Users
   const student = await prisma.user.create({
     data: {
-      email: 'nischal@campus.edu',
+      email: 'nischal.26bes7079@vitapstudent.ac.in',
       passwordHash: studentPassword,
       role: 'STUDENT',
       name: 'Nischal Chowdary',
-      rollNumber: '2614213032',
-      department: 'Computer Science & Engineering',
+      rollNumber: '26BES7079',
+      department: 'School of Computer Science and Engineering (SCOPE)',
       phone: '+91 9848022338',
       avatarUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80',
       studentProfile: {
         create: {
-          universityCardId: 'UCID-2614213032',
-          year: '3rd Year B.Tech',
+          universityCardId: 'UCID-26BES7079',
+          year: '3rd Year B.Tech CSE',
           balance: 245.50,
           loyaltyPoints: 180,
           defaultDuplex: true,
@@ -51,42 +51,42 @@ async function main() {
 
   const admin = await prisma.user.create({
     data: {
-      email: 'admin@campus.edu',
+      email: 'admin@vitap.ac.in',
       passwordHash: adminPassword,
       role: 'ADMIN',
       name: 'Dr. A. Sharma',
       rollNumber: 'EMP-ADM-042',
-      department: 'Campus IT & Auxiliary Services',
+      department: 'VIT-AP Campus IT & Auxiliary Services',
       phone: '+91 9440112233'
     }
   });
 
   const operator = await prisma.user.create({
     data: {
-      email: 'operator@campus.edu',
+      email: 'operator@vitap.ac.in',
       passwordHash: operatorPassword,
       role: 'OPERATOR',
       name: 'Ramesh Kumar',
       rollNumber: 'EMP-OPS-108',
-      department: 'Central Print Hub Fleet Operations',
+      department: 'Central Block (CB) Fleet Operations Desk',
       phone: '+91 9988776655'
     }
   });
 
   console.log('✅ Demo Users created:');
-  console.log('   - Student: nischal@campus.edu / password123');
-  console.log('   - Admin: admin@campus.edu / admin123');
-  console.log('   - Operator: operator@campus.edu / operator123');
+  console.log('   - Student: nischal.26bes7079@vitapstudent.ac.in / password123');
+  console.log('   - Admin: admin@vitap.ac.in / admin123');
+  console.log('   - Operator: operator@vitap.ac.in / operator123');
 
-  // 2. Create Campus Kiosks (Demonstration Campus Coordinates)
+  // 2. Create Campus Kiosks (VIT-AP University Campus Coordinates)
   const kiosksData = [
     {
-      name: 'Central Campus Kiosk',
-      campusCode: 'K-CENTRAL',
-      location: 'Student Activity Center, Ground Floor Foyer',
-      description: 'Primary high-speed duplex print hub with 2 heavy-duty laser units',
-      latitude: 16.5062,
-      longitude: 80.6480,
+      name: 'Central Block Kiosk (CB)',
+      campusCode: 'VITAP-CB',
+      location: 'Central Block (CB), Ground Floor Main Foyer & Food Court',
+      description: '10-storey campus landmark hub with heavy-duty laser units & cafeteria pickup',
+      latitude: 16.4952,
+      longitude: 80.4995,
       status: 'ONLINE',
       paperLevelPercent: 94,
       tonerLevelPercent: 88,
@@ -96,64 +96,79 @@ async function main() {
       operatorName: 'Ramesh Kumar (Desk A)'
     },
     {
-      name: 'Library Kiosk',
-      campusCode: 'K-LIB',
-      location: 'Central Library, 2nd Floor Digital Resource Center',
-      description: 'Quiet print zone with automated smart envelope dispenser',
-      latitude: 16.5075,
-      longitude: 80.6495,
+      name: 'Sarvepalli Radhakrishnan Block (AB-1)',
+      campusCode: 'VITAP-AB1',
+      location: 'Academic Block 1 (AB-1), Near VSB & SCOPE Dept Level 1',
+      description: 'High-speed duplex print hub for CSE, Mechanical, and Business lab records',
+      latitude: 16.4965,
+      longitude: 80.4988,
+      status: 'ONLINE',
+      paperLevelPercent: 88,
+      tonerLevelPercent: 82,
+      queueDepth: 1,
+      ppmSpeed: 40,
+      activeQueueCapacity: 35,
+      operatorName: 'Priya V. (AB-1 Desk)'
+    },
+    {
+      name: 'APJ Abdul Kalam Block (AB-2)',
+      campusCode: 'VITAP-AB2',
+      location: 'Academic Block 2 (AB-2), School of Sciences & Languages Entrance',
+      description: 'Thesis, dissertation and high-volume project reports binder station',
+      latitude: 16.4974,
+      longitude: 80.5002,
+      status: 'ONLINE',
+      paperLevelPercent: 96,
+      tonerLevelPercent: 92,
+      queueDepth: 0,
+      ppmSpeed: 50,
+      activeQueueCapacity: 40,
+      operatorName: 'Suresh M. (AB-2 Lab)'
+    },
+    {
+      name: 'VIT-AP Central Library Hub',
+      campusCode: 'VITAP-LIB',
+      location: 'Central Library, 2nd Floor Digital Resource & E-Learning Section',
+      description: 'Quiet study zone with Koha automated smart envelope dispenser',
+      latitude: 16.4942,
+      longitude: 80.5008,
       status: 'ONLINE',
       paperLevelPercent: 82,
       tonerLevelPercent: 79,
       queueDepth: 1,
       ppmSpeed: 35,
       activeQueueCapacity: 30,
-      operatorName: 'Priya V. (Library Desk)'
+      operatorName: 'Library Circulation Desk'
     },
     {
-      name: 'Hostel Block A Kiosk',
-      campusCode: 'K-HST-A',
-      location: 'Boys Hostel A, Main Lounge Entrance',
-      description: '24/7 autonomous quick-scan release terminal',
-      latitude: 16.5048,
-      longitude: 80.6470,
-      status: 'ONLINE',
-      paperLevelPercent: 68,
-      tonerLevelPercent: 62,
-      queueDepth: 3,
-      ppmSpeed: 30,
-      activeQueueCapacity: 25,
-      operatorName: 'Hostel Warden Desk'
-    },
-    {
-      name: 'Hostel Block B Kiosk',
-      campusCode: 'K-HST-B',
-      location: 'Girls Hostel B, Common Recreation Hall',
-      description: '24/7 express pickup lockers with barcode scanner',
-      latitude: 16.5042,
-      longitude: 80.6465,
+      name: 'Men\'s Hostel Complex (MH - Rock Plaza)',
+      campusCode: 'VITAP-MH',
+      location: 'Men\'s Hostel (MH-1/MH-2), Beside Rock Plaza & Food Street',
+      description: '24/7 express pickup lockers with instant QR code release for late-night prints',
+      latitude: 16.4930,
+      longitude: 80.4985,
       status: 'BUSY',
-      paperLevelPercent: 78,
-      tonerLevelPercent: 71,
-      queueDepth: 5,
-      ppmSpeed: 30,
+      paperLevelPercent: 74,
+      tonerLevelPercent: 68,
+      queueDepth: 4,
+      ppmSpeed: 35,
       activeQueueCapacity: 25,
-      operatorName: 'Security Desk B'
+      operatorName: 'Rock Plaza Security Desk'
     },
     {
-      name: 'Academic Block Kiosk',
-      campusCode: 'K-ACAD',
-      location: 'Engineering Department, West Wing Level 1',
-      description: 'Project reports & thesis high-volume binder station',
-      latitude: 16.5085,
-      longitude: 80.6510,
+      name: 'Ladies Hostel Complex (LH Block)',
+      campusCode: 'VITAP-LH',
+      location: 'Ladies Hostel (LH-1/LH-2), Common Recreation Hall Foyer',
+      description: '24/7 autonomous quick-scan release terminal inside secure residential boundary',
+      latitude: 16.4925,
+      longitude: 80.5015,
       status: 'ONLINE',
-      paperLevelPercent: 98,
-      tonerLevelPercent: 95,
-      queueDepth: 0,
-      ppmSpeed: 50,
-      activeQueueCapacity: 40,
-      operatorName: 'CSE Lab Tech'
+      paperLevelPercent: 90,
+      tonerLevelPercent: 85,
+      queueDepth: 2,
+      ppmSpeed: 35,
+      activeQueueCapacity: 25,
+      operatorName: 'LH Warden Desk'
     }
   ];
 
@@ -368,7 +383,7 @@ async function main() {
           cardVerified: true,
           envelopeCodeVerified: true,
           otpVerified: false,
-          verificationNotes: 'Handover complete. Student ID 2614213032 confirmed.'
+          verificationNotes: 'Handover complete. Student ID 26BES7079 confirmed at Central Block (CB).'
         }
       }
     }
@@ -380,7 +395,7 @@ async function main() {
       {
         userId: student.id,
         title: 'Your Print Is Ready! 🎉',
-        message: 'Order #8XUI-Z123 is printed and sealed at Central Campus Kiosk. Show your ID for quick collection.',
+        message: 'Order #8XUI-Z123 is printed and sealed at Central Block Kiosk (CB). Show your ID for quick collection.',
         type: 'READY_FOR_PICKUP',
         isRead: false,
         link: '/orders/8XUI-Z123'
@@ -388,7 +403,7 @@ async function main() {
       {
         userId: student.id,
         title: 'Hardware Printing Started 🖨️',
-        message: 'Order #4TRK-B981 is being printed at Library Kiosk (High Priority Mode).',
+        message: 'Order #4TRK-B981 is being printed at Sarvepalli Radhakrishnan Block (AB-1) (High Priority Mode).',
         type: 'ORDER_CONFIRMED',
         isRead: false,
         link: '/orders/4TRK-B981'

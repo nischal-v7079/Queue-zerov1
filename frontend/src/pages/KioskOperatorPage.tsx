@@ -135,7 +135,7 @@ export const KioskOperatorPage: React.FC = () => {
 
                   <div className="flex items-center justify-between text-[10px] text-gray-500 pt-1 border-t border-gray-100">
                     <span>Student: {job.user?.name}</span>
-                    <span className="font-mono">Roll: {job.user?.rollNumber || '2614213032'}</span>
+                    <span className="font-mono">Roll: {job.user?.rollNumber || '26BES7079'}</span>
                   </div>
                 </div>
               ))

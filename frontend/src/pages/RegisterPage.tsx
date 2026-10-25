@@ -101,7 +101,7 @@ export const RegisterPage: React.FC = () => {
                 required
                 value={rollNumber}
                 onChange={(e) => setRollNumber(e.target.value)}
-                placeholder="e.g. 2614213032"
+                placeholder="e.g. 26BES7079"
                 className="w-full px-4 py-2.5 rounded-xl border border-brand-cardBorder font-mono font-bold text-xs text-brand-dark outline-none focus:ring-2 focus:ring-brand-purple/20 focus:border-brand-purple"
               />
             </div>

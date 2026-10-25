@@ -79,7 +79,7 @@ export const WalletPage: React.FC = () => {
           <div className="relative z-10 flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-white/20 text-xs">
             <div>
               <div className="text-purple-200 text-[11px]">Linked Student ID</div>
-              <div className="font-mono font-bold text-white">{user?.rollNumber || '2614213032'}</div>
+              <div className="font-mono font-bold text-white">{user?.rollNumber || '26BES7079'}</div>
             </div>
 
             <div>

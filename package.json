@@ -1,6 +1,7 @@
 {
   "name": "queuezero-platform",
   "version": "1.0.0",
+  "type": "module",
   "description": "QueueZero (Q-Zero) Complete Full-Stack Smart Campus Printing Platform",
   "scripts": {
     "install:all": "cd backend && npm install && cd ../frontend && npm install",

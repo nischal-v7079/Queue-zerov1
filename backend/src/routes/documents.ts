@@ -10,9 +10,13 @@ import { calculatePrintPrice } from '../services/priceEngine.js';
 const router = Router();
 
 // Ensure upload directory exists
-const uploadDir = path.join(process.cwd(), 'uploads');
+const uploadDir = process.env.VERCEL ? path.join('/tmp', 'uploads') : path.join(process.cwd(), 'uploads');
 if (!fs.existsSync(uploadDir)) {
-  fs.mkdirSync(uploadDir, { recursive: true });
+  try {
+    fs.mkdirSync(uploadDir, { recursive: true });
+  } catch (e) {
+    console.error('Error creating uploadDir:', e);
+  }
 }
 
 // Multer storage

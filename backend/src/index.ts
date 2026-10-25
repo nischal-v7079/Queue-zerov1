@@ -42,10 +42,14 @@ app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 // Ensure upload directory exists and serve files statically
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const uploadsPath = path.join(__dirname, '../uploads');
+const uploadsPath = process.env.VERCEL ? path.join('/tmp', 'uploads') : path.join(__dirname, '../uploads');
 import fs from 'fs';
 if (!fs.existsSync(uploadsPath)) {
-  fs.mkdirSync(uploadsPath, { recursive: true });
+  try {
+    fs.mkdirSync(uploadsPath, { recursive: true });
+  } catch (e) {
+    console.error('Error creating uploads directory:', e);
+  }
 }
 app.use('/uploads', express.static(uploadsPath));
 
@@ -82,20 +86,22 @@ app.use((err: any, _req: express.Request, res: express.Response, _next: express.
   });
 });
 
-// Listen on 0.0.0.0 to bind both IPv4 and IPv6 interfaces
-const server = app.listen(PORT, HOST, () => {
-  console.log(`====================================================`);
-  console.log(`🚀 QueueZero (Q-Zero) API Server running on http://${HOST}:${PORT}`);
-  console.log(`🔗 Local URL:   http://localhost:${PORT}`);
-  console.log(`🔗 Health Check: http://localhost:${PORT}/api/health`);
-  console.log(`====================================================`);
-});
-
-process.on('SIGTERM', () => {
-  server.close(() => {
-    console.log('Server process terminated gracefully');
+// Only start server listener in non-serverless / standalone environment
+if (!process.env.VERCEL) {
+  const server = app.listen(PORT, HOST, () => {
+    console.log(`====================================================`);
+    console.log(`🚀 QueueZero (Q-Zero) API Server running on http://${HOST}:${PORT}`);
+    console.log(`🔗 Local URL:   http://localhost:${PORT}`);
+    console.log(`🔗 Health Check: http://localhost:${PORT}/api/health`);
+    console.log(`====================================================`);
   });
-});
+
+  process.on('SIGTERM', () => {
+    server.close(() => {
+      console.log('Server process terminated gracefully');
+    });
+  });
+}
 
 export default app;
 export { app };

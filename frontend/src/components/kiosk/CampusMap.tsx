@@ -55,8 +55,8 @@ export const CampusMap: React.FC<CampusMapProps> = ({
   selectedKioskId,
   onSelectKiosk,
 }) => {
-  // Center on VIT-AP University campus (Inavolu, Amaravati)
-  const defaultCenter: [number, number] = [16.4947, 80.4992];
+  // Center on VIT-AP University campus exact centroid of the 6 indoor printer buildings
+  const defaultCenter: [number, number] = [16.4945, 80.4989];
 
   const activeKiosk = kiosks.find((k) => k.id === selectedKioskId) || kiosks[0];
   const centerPos: [number, number] = activeKiosk
